@@ -1,0 +1,19 @@
+# 🧠 Dataset cache files
+data/dpo/train/cache-*.arrow
+
+# 📦 Model output directories and weights
+outputs/
+*.pt
+*.bin
+*.safetensors
+
+# ⚙️ Python cache
+__pycache__/
+*.py[cod]
+
+# 📊 TensorBoard logs
+*.tfevents.*
+
+# 💻 System files
+.DS_Store
+Thumbs.db
