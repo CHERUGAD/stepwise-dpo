@@ -1,0 +1,12 @@
+[
+  {
+    "prompt": "What is the capital of France?",
+    "chosen": "The capital of France is Paris.",
+    "rejected": "France's capital is Berlin."
+  },
+  {
+    "prompt": "Explain photosynthesis in simple terms.",
+    "chosen": "Photosynthesis is the process by which plants make food using sunlight.",
+    "rejected": "Photosynthesis is how animals digest food."
+  }
+]
