@@ -41,3 +41,8 @@ trainer = StepwiseDPOTrainer(
 )
 
 trainer.train()
+
+save_dir = "./outputs/final_stepwise_dpo_model"
+model.save_pretrained(save_dir)
+tokenizer.save_pretrained(save_dir)
+print(f"Model saved to {save_dir}")

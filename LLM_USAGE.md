@@ -63,4 +63,25 @@ Next: ✅ Implement `LLMRewardModel` → 🧠 Add custom `compute_loss` using st
 
 ---
 
-Next: ✨ (Optional) Run inference script to compare model preferences between `chosen` and `rejected`.
+Next: ✨  Run inference script to compare model preferences between `chosen` and `rejected`.
+---
+
+## ✅ Stepwise DPO Training Log — Phase 2 (With Reward Model)
+
+### 🧩 Setup
+- **Trainer**: `StepwiseDPOTrainer` (custom loss using LLMRewardModel)
+- **Model**: `google/flan-t5-small`
+- **Reward Model**: ✅ Integrated (`LLMRewardModel`)
+- **Dataset**: Converted `synthetic_prm.json` → DPO Format
+
+### 🧠 Evaluation
+- **Inference Inputs**: Prompt, Chosen, Rejected
+- **Reward Scores**: Computed for each via stepwise decoder logits
+- **Output Files**: `inference_results.csv`, `inference_results.jsonl`
+- **Inference Mode**: Batch Evaluation
+
+### ✅ Results
+- Reward model correctly preferred the better completions in most cases.
+- Model output was saved and analyzed.
+
+---
