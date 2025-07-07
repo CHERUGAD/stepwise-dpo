@@ -2,7 +2,7 @@
 
 This project implements a custom **StepwiseDPOTrainer** that uses **LLM-generated step-wise rewards** to fine-tune a small language model using the DPO (Direct Preference Optimization) method.
 
-Inspired by the ["Let’s Verify Step by Step" (OpenAI)](https://arxiv.org/abs/2408.15240v1) paper.
+
 
 ---
 
