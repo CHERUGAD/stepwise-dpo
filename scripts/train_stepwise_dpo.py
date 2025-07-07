@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append(os.path.abspath("."))  # make sure your src folder is importable
+sys.path.append(os.path.abspath("."))  # enable local src imports
 
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from datasets import DatasetDict
@@ -8,21 +8,16 @@ from src.trainer.stepwise_dpo_trainer import StepwiseDPOTrainer
 from trl import DPOConfig
 import torch
 
-# Model checkpoint - lightweight for faster training
 model_name = "google/flan-t5-small"
-
-# Load the DPO dataset from disk
 dataset = DatasetDict.load_from_disk("data/dpo")
 
-# Load tokenizer and model
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSeq2SeqLM.from_pretrained(
     model_name,
     torch_dtype=torch.float32,
-    device_map={"": "cpu"}  
+    device_map={"": "cpu"}  # or use `"auto"` if running on GPU
 )
 
-# Setup DPO config
 dpo_config = DPOConfig(
     learning_rate=5e-5,
     per_device_train_batch_size=2,
@@ -38,7 +33,6 @@ dpo_config = DPOConfig(
     auto_find_batch_size=True,
 )
 
-# Initialize your Stepwise DPO Trainer
 trainer = StepwiseDPOTrainer(
     model=model,
     ref_model=None,
@@ -46,6 +40,4 @@ trainer = StepwiseDPOTrainer(
     train_dataset=dataset["train"]
 )
 
-
-# Start training
 trainer.train()
