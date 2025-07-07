@@ -19,7 +19,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSeq2SeqLM.from_pretrained(
     model_name,
     torch_dtype=torch.float32,
-    device_map={"": "cpu"}  # Use CPU to avoid gpu/bf16 issues if needed
+    device_map={"": "cpu"}  
 )
 
 # Setup DPO config
